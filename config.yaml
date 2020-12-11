@@ -1,0 +1,31 @@
+name: "gg"
+mode: "dev"
+version: "v0.0.1"
+start_time: "2020-12-09"
+machine_id: 1
+port: 8081
+log:
+  level: "info"
+  filename: "gg.log"
+  max_size: 200
+  max_age: 30
+  max_backups: 7
+mysql:
+  host: "127.0.0.1"
+  port: 13306
+  user: "root"
+  password: "1"
+  dbname: "db1"
+  max_idle_conns: 10
+  max_open_conns: 100
+redis:
+  host: "127.0.0.1"
+  port: 16379
+  password: ""
+  db: 0
+jwt:
+  secret: "balabala"
+  issuer: "zilong"
+  timeout: 168
+
+
