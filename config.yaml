@@ -26,6 +26,7 @@ redis:
 jwt:
   secret: "balabala"
   issuer: "zilong"
-  timeout: 168
+  access_timeout: 15 #minute
+  refresh_timeout: 168 #hour
 
 

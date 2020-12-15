@@ -54,9 +54,10 @@ type RedisConfig struct {
 
 // JWTConfig is the config of jwt middleware.
 type JWTConfig struct {
-	MySecret string `mapstructure:"secret"`
-	Issuer   string `mapstructure:"issuer"`
-	Timeout  int64  `mapstructure:"timeout"`
+	MySecret       string `mapstructure:"secret"`
+	Issuer         string `mapstructure:"issuer"`
+	AccessTimeout  int64  `mapstructure:"access_timeout"`
+	RefreshTimeout int64  `mapstructure:"refresh_timeout"`
 }
 
 // Init settings.
