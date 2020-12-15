@@ -2,7 +2,7 @@ package jwt
 
 import (
 	"errors"
-	"gg/settings"
+	"gg/pkg/settings"
 	"time"
 
 	jwt "github.com/dgrijalva/jwt-go"

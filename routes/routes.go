@@ -3,8 +3,8 @@ package routes
 import (
 	"gg/controller"
 	"gg/dao"
-	"gg/logger"
 	"gg/middleware"
+	"gg/pkg/logger"
 	"net/http"
 
 	"github.com/gin-gonic/gin"

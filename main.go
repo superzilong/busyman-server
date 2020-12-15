@@ -3,10 +3,10 @@ package main
 import (
 	"fmt"
 	"gg/dao"
-	"gg/logger"
+	"gg/pkg/logger"
+	"gg/pkg/settings"
 	"gg/pkg/snowflake"
 	"gg/routes"
-	"gg/settings"
 
 	"go.uber.org/zap"
 )

@@ -3,7 +3,7 @@ package dao
 import (
 	"fmt"
 	"gg/models"
-	"gg/settings"
+	"gg/pkg/settings"
 
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql" // Initialize mysql driver
