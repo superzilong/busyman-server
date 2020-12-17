@@ -109,3 +109,9 @@
 {"level":"INFO","time":"2020-12-12T01:31:42.449+0800","caller":"logger/logger.go:70","msg":"/login","status":200,"method":"POST","path":"/login","query":"","ip":"127.0.0.1","user-agent":"curl/7.58.0","errors":"","cost":19.1671662}
 {"level":"INFO","time":"2020-12-12T01:33:14.451+0800","caller":"logger/logger.go:70","msg":"/refreshToken","status":200,"method":"POST","path":"/refreshToken","query":"","ip":"127.0.0.1","user-agent":"curl/7.58.0","errors":"","cost":44.3611272}
 {"level":"INFO","time":"2020-12-12T01:34:23.544+0800","caller":"logger/logger.go:70","msg":"/user","status":200,"method":"GET","path":"/user","query":"","ip":"127.0.0.1","user-agent":"curl/7.58.0","errors":"","cost":2.8207981}
+{"level":"INFO","time":"2020-12-17T22:35:35.270+0800","caller":"gg/main.go:26","msg":"logger init success..."}
+{"level":"INFO","time":"2020-12-17T22:36:02.299+0800","caller":"logger/logger.go:81","msg":"/user","status":200,"method":"GET","path":"/user","query":"","ip":"127.0.0.1","user-agent":"curl/7.58.0","errors":"","cost":0.0001965}
+{"level":"INFO","time":"2020-12-17T22:43:04.175+0800","caller":"gg/main.go:26","msg":"logger init success..."}
+{"level":"INFO","time":"2020-12-17T22:43:08.845+0800","caller":"logger/logger.go:81","msg":"/user","status":200,"method":"GET","path":"/user","query":"","ip":"127.0.0.1","user-agent":"curl/7.58.0","errors":"","cost":0.0001415}
+{"level":"INFO","time":"2020-12-17T22:43:26.699+0800","caller":"gg/main.go:26","msg":"logger init success..."}
+{"level":"INFO","time":"2020-12-17T22:43:30.152+0800","caller":"logger/logger.go:81","msg":"/user","status":200,"method":"GET","path":"/user","query":"","ip":"127.0.0.1","user-agent":"curl/7.58.0","errors":"","code":"","msg":"","cost":0.0001106}
