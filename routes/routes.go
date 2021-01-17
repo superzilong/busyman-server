@@ -6,13 +6,18 @@ import (
 	"gg/service"
 	"net/http"
 
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
 
 // Setup routes.
 func Setup() *gin.Engine {
 	r := gin.New()
-	r.Use(middleware.GinLogger(), middleware.GinRecovery(true))
+	config := cors.DefaultConfig()
+	config.AllowMethods = append(config.AllowMethods, "OPTIONS")
+	config.AllowAllOrigins = true
+	config.AddAllowHeaders("Authorization")
+	r.Use(middleware.GinLogger(), middleware.GinRecovery(true), cors.New(config))
 
 	r.GET("/ping", func(c *gin.Context) {
 		c.String(http.StatusOK, "pong")

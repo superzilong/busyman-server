@@ -54,7 +54,7 @@ func ParseAccessToken(tokenString string) (*MyClaims, error) {
 	token, err := jwt.ParseWithClaims(tokenString, &c, keyFunc)
 
 	if err != nil {
-		return nil, err
+		return &c, err
 	}
 
 	if claims, ok := token.Claims.(*MyClaims); ok && token.Valid {

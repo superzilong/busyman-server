@@ -58,7 +58,7 @@ func RefreshToken(c *gin.Context) {
 	}
 	strRefreshToken, ok := m["refreshToken"]
 	if !ok {
-		c.JSON(http.StatusOK, gin.H{
+		c.JSON(http.StatusUnauthorized, gin.H{
 			"code": 2001,
 			"msg":  "参数中没有refreshToken",
 		})
@@ -66,12 +66,12 @@ func RefreshToken(c *gin.Context) {
 	err := jwt.ParseRefreshToken(strRefreshToken)
 	if err != nil {
 		if jwt.IsTokenExpiredErr(err) {
-			c.JSON(http.StatusOK, gin.H{
+			c.JSON(http.StatusUnauthorized, gin.H{
 				"code": 2004,
 				"msg":  "refreshToken expires.",
 			})
 		} else {
-			c.JSON(http.StatusOK, gin.H{
+			c.JSON(http.StatusUnauthorized, gin.H{
 				"code": 2005,
 				"msg":  "invalid refreshToken.",
 			})
@@ -80,7 +80,7 @@ func RefreshToken(c *gin.Context) {
 	username, _ := c.Get("username")
 	strAccessToken, err := jwt.GenAccessToken(username.(string))
 	if err != nil {
-		c.JSON(http.StatusOK, gin.H{
+		c.JSON(http.StatusUnauthorized, gin.H{
 			"code": 2003,
 			"msg":  "生成token出错",
 		})

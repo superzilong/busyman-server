@@ -13,7 +13,7 @@ func JWTAuthMiddleware() func(c *gin.Context) {
 	return func(c *gin.Context) {
 		authHeader := c.Request.Header.Get("Authorization")
 		if authHeader == "" {
-			c.JSON(http.StatusOK, gin.H{
+			c.JSON(http.StatusUnauthorized, gin.H{
 				"code": 2101,
 				"msg":  "请求头中Authorization为空",
 			})
@@ -23,7 +23,7 @@ func JWTAuthMiddleware() func(c *gin.Context) {
 
 		parts := strings.SplitN(authHeader, " ", 2)
 		if !(len(parts) == 2 && parts[0] == "Bearer") {
-			c.JSON(http.StatusOK, gin.H{
+			c.JSON(http.StatusUnauthorized, gin.H{
 				"code": 2102,
 				"msg":  "请求头中auth格式有误",
 			})
@@ -35,7 +35,7 @@ func JWTAuthMiddleware() func(c *gin.Context) {
 		if err != nil {
 			if jwt.IsTokenExpiredErr(err) {
 				if c.FullPath() != "/refreshToken" {
-					c.JSON(http.StatusOK, gin.H{
+					c.JSON(452, gin.H{
 						"code": 2103,
 						"msg":  "accessToken expires.",
 					})
@@ -43,7 +43,7 @@ func JWTAuthMiddleware() func(c *gin.Context) {
 					return
 				}
 			} else {
-				c.JSON(http.StatusOK, gin.H{
+				c.JSON(http.StatusUnauthorized, gin.H{
 					"code": 2104,
 					"msg":  "Invalid accessToken.",
 				})

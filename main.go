@@ -6,7 +6,7 @@ import (
 	"gg/pkg/settings"
 	"gg/pkg/snowflake"
 	"gg/routes"
-	dao "gg/service"
+	"gg/service"
 
 	"go.uber.org/zap"
 )
@@ -26,12 +26,13 @@ func main() {
 	zap.L().Info("logger init success...")
 
 	// 3. Init gorm.
-	if err := dao.Init(); err != nil {
-		fmt.Printf("init dao failed, err: %v\n", err)
+	if err := service.Init(); err != nil {
+		fmt.Printf("init service failed, err: %v\n", err)
 		return
 	}
-	defer dao.Close()
+	defer service.Close()
 	// 4. Init Redis
+	// TODO:
 
 	// 5. Init snowflake
 	if err := snowflake.Init(settings.Conf.StartTime, settings.Conf.MachineID); err != nil {
