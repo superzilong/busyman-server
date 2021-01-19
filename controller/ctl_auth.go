@@ -11,7 +11,7 @@ import (
 
 // Login is the callback of /login route.
 func Login(c *gin.Context) {
-	var user models.UserInfo
+	var user models.User
 	err := c.ShouldBind(&user)
 	if err != nil {
 		c.JSON(http.StatusOK, gin.H{
@@ -21,7 +21,7 @@ func Login(c *gin.Context) {
 		return
 	}
 
-	if service.GetUserInfoByName(user.Name).Password != user.Password {
+	if service.GetUserByName(user.Name).Password != user.Password {
 		c.JSON(http.StatusOK, gin.H{
 			"code": 2002,
 			"msg":  "用户名或密码不对",

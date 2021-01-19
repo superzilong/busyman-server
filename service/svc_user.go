@@ -6,19 +6,19 @@ import (
 )
 
 // GetUser for dao.
-func GetUser() *models.UserInfo {
-	userInfo := new(models.UserInfo)
-	result := db.First(userInfo)
+func GetUser() *models.User {
+	user := new(models.User)
+	result := db.First(user)
 	fmt.Println("rowsaffected: ", result.RowsAffected)
-	return userInfo
+	return user
 }
 
-// GetUserInfoByName return UserInfo whose name is equal to the input name.
-func GetUserInfoByName(name string) *models.UserInfo {
-	userInfo := new(models.UserInfo)
-	result := db.Find(userInfo, "Name=?", name)
+// GetUserByName return User whose name is equal to the input name.
+func GetUserByName(name string) *models.User {
+	user := new(models.User)
+	result := db.Find(user, "Name=?", name)
 	if result.Error == nil {
-		return userInfo
+		return user
 	}
 	return nil
 }

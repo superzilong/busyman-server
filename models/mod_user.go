@@ -1,10 +1,8 @@
 package models
 
-// UserInfo 用户信息
-type UserInfo struct {
-	ID       uint
-	Name     string `json:"Name" binding:"required"`
-	Password string `json:"Password" binding:"required"`
-	Gender   string
-	Hobby    string
+// User 用户
+type User struct {
+	Model
+	Name     string `json:"name" binding:"required"`
+	Password string `json:"password" binding:"required"`
 }
