@@ -39,7 +39,16 @@ func Init() (err error) {
 	mysqldb.SetMaxOpenConns(config.MaxOpenConns)
 
 	// 自动迁移
-	db.AutoMigrate(&models.User{}, &models.Product{}, &models.Customer{}, &models.SalesOrder{}, &models.SalesOrderItem{})
+	db.AutoMigrate(
+		&models.User{},
+		&models.Product{},
+		&models.Customer{},
+		&models.SalesOrder{},
+		&models.SalesOrderItem{},
+		&models.Vendor{},
+		&models.PurchaseOrder{},
+		&models.PurchaseOrderItem{},
+	)
 
 	return
 }

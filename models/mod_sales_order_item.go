@@ -1,8 +1,8 @@
 package models
 
-// SalesOrderItem sales order items.
+// SalesOrderItem 销售单产品项目
 type SalesOrderItem struct {
-	SalesOrderID uint       `json:"salesOrderID"`
+	SalesOrderID uint       `json:"salesOrderId"`
 	SalesOrder   SalesOrder `json:"salesOrder" gorm:"foreignKey:SalesOrderID"`
 	ProductID    uint       `json:"productId"`
 	Product      Product    `json:"product" gorm:"foreignKey:ProductID"`
