@@ -35,13 +35,15 @@ func Setup() *gin.Engine {
 	r.POST("/customers", middleware.JWTAuthMiddleware())
 	r.GET("/customers", middleware.JWTAuthMiddleware())
 
-	r.POST("/vendors", middleware.JWTAuthMiddleware())
-	r.GET("/vendors", middleware.JWTAuthMiddleware())
+	r.POST("/vendors", middleware.JWTAuthMiddleware(), controller.CreateVendor)
+	r.GET("/vendors", middleware.JWTAuthMiddleware(), controller.GetAllVendors)
 
 	r.POST("/salesOrders", middleware.JWTAuthMiddleware())
 	r.GET("/salesOrders", middleware.JWTAuthMiddleware())
 
-	r.POST("/purchaseOrders", middleware.JWTAuthMiddleware())
-	r.GET("/purchaseOrders", middleware.JWTAuthMiddleware())
+	r.POST("/purchaseOrders", middleware.JWTAuthMiddleware(), controller.CreatePurchaseOrder)
+	r.GET("/purchaseOrders", middleware.JWTAuthMiddleware(), controller.GetAllPurChaseOrders)
+
+	r.GET("/purchaseOrderItems", middleware.JWTAuthMiddleware(), controller.GetPurchaseOrderItemsByOrderID)
 	return r
 }

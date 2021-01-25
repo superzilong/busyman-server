@@ -16,7 +16,7 @@ func GetUser() *models.User {
 // GetUserByName return User whose name is equal to the input name.
 func GetUserByName(name string) *models.User {
 	user := new(models.User)
-	result := db.Find(user, "Name=?", name)
+	result := db.Find(user, "name = ?", name)
 	if result.Error == nil {
 		return user
 	}
